@@ -2,10 +2,11 @@ angular.module('alurapic').controller('FotosController', function($scope, $http)
     $scope.fotos = [];
 
     $http.get('/v1/fotos')
-    .then(function (retorno){
-       $scope.fotos = retorno.data; 
+    .success(function (retorno){
+        console.log(retorno);
+       $scope.fotos = retorno; //não precisar fazer retorno.data 
     })
     .catch(function(erro){
-        console.log(erro)
+        console.log(erro);
     });
 });
